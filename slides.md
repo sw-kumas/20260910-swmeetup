@@ -1,266 +1,662 @@
 ---
-theme: default
-title: AIがシニアエンジニアになったとき
-titleTemplate: '%s'
-info: 人間とAIの役割を、Matt Pocockの考え方から見直す社内向けの10分トーク。
-colorSchema: dark
-aspectRatio: 16/9
-canvasWidth: 1280
-duration: 10min
-timer: countdown
-fonts:
-  sans: 'Hiragino Kaku Gothic ProN'
-  mono: 'SFMono-Regular'
-  provider: none
-htmlAttrs:
-  lang: ja
-monaco: false
+# try also 'default' to start simple
+theme: seriph
+# random image from a curated Unsplash collection by Anthony
+# like them? see https://unsplash.com/collections/94734566/slidev
+background: https://cover.sli.dev
+# some information about your slides (markdown enabled)
+title: Welcome to Slidev
+info: |
+  ## Slidev Starter Template
+  Presentation slides for developers.
+
+  Learn more at [Sli.dev](https://sli.dev)
+# apply UnoCSS classes to the current slide
+class: text-center
+# https://sli.dev/features/drawing
 drawings:
-  enabled: false
-defaults:
-  layout: default
-exportFilename: ai-senior-engineer
+  persist: false
+# slide transition: https://sli.dev/guide/animations.html#slide-transitions
+transition: slide-left
+# enable Comark Syntax: https://comark.dev/syntax/markdown
+comark: true
+# duration of the presentation
+duration: 35min
 ---
 
-<div class="eyebrow">人とAIの役割を考える</div>
+# Welcome to Slidev
 
-# AIが<br>シニアエンジニアに<br>なったとき
+Presentation slides for developers
 
-<div class="cover-boundary" aria-hidden="true">
-  <span class="boundary-label">人間が決める</span>
-  <div class="cover-interior"><span>AIに任せる</span></div>
+<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
+  Press Space for next page <carbon:arrow-right />
 </div>
 
-<div class="page-number">01 / 09</div>
+<div class="abs-br m-6 text-xl">
+  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
+    <carbon:edit />
+  </button>
+  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
+    <carbon:logo-github />
+  </a>
+</div>
 
 <!--
-目安 0:35（累計 0:35）
-今日は、AIが賢くなると、私たちの仕事はどう変わるのか、という話です。
-コードをどれだけ速く書けるかより、何を自分で考えて、どこをAIに任せるか。
-最近見たGPT-6の検証動画をきっかけに、今の自分の考えを整理しました。
-「シニア」はLLMへの任せ方を考えるための比喩です。能力や経験年数を測った結果ではありません。
+The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
 
 ---
-class: observation
+transition: fade-out
 ---
 
-<div class="eyebrow">公開された検証動画を見て</div>
+# What is Slidev?
 
-# 賢くなった。<br>任せ方は、そのままでいい？
+Slidev is a slides maker and presenter designed for developers, consist of the following features
 
-<div class="image-grid">
-  <figure><div class="image-placeholder" role="img" aria-label="検証動画の画像1を後から差し替える枠"><span>01</span><small>画像を差し替え</small></div><figcaption>検証例 1</figcaption></figure>
-  <figure><div class="image-placeholder" role="img" aria-label="検証動画の画像2を後から差し替える枠"><span>02</span><small>画像を差し替え</small></div><figcaption>検証例 2</figcaption></figure>
-  <figure><div class="image-placeholder" role="img" aria-label="検証動画の画像3を後から差し替える枠"><span>03</span><small>画像を差し替え</small></div><figcaption>検証例 3</figcaption></figure>
-</div>
+- 📝 **Text-based** - focus on the content with Markdown, and then style them later
+- 🎨 **Themable** - themes can be shared and re-used as npm packages
+- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
+- 🤹 **Interactive** - embed Vue components to enhance your expressions
+- 🎥 **Recording** - built-in recording and camera view
+- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
+- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
+<br>
+<br>
 
-<p class="bottom-thought">細かな手順の中では、進化の差が小さく見えることがある。</p>
-<div class="page-number">02 / 09</div>
+Read more about [Why Slidev?](https://sli.dev/guide/why)
 
 <!--
-目安 1:15（累計 1:50）
-私はGPT-6を十分に使い込んでいるわけではありません。ここは、ネットにあるいろいろな人の検証動画を見た所感です。
-画像や3Dなど、作っているものを見ると、かなり賢くなったように見える。
-その一方で、細かな手順をたくさん与えた環境だと、前のモデルとの差があまり大きく見えないことがありました。
-同じ条件で比較した実験ではないので、手順が原因だと断定はできません。
-ただ、モデルが変わったのに、こちらの任せ方が変わっていないのでは、と思いました。
-画像差し替え時：各動画の実際の内容に合わせて説明を調整し、出典URLを画像のキャプションと参考資料へ追加する。
+You can have `style` tag in markdown to override the style for the current page.
+Learn more: https://sli.dev/features/slide-scope-style
+-->
+
+<style>
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+}
+</style>
+
+<!--
+Here is another comment.
 -->
 
 ---
-class: skill-slide
+transition: slide-up
+level: 2
 ---
 
-<div class="eyebrow">以前、私も使っていた Superpowers</div>
+# Navigation
 
-# 手順を、ここまで書いておく。
+Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
 
-<div class="skill-panel">
-  <div class="file-label">executing-plans / SKILL.md <span>原文抜粋・2段組</span></div>
-  <div class="detailed-instructions">
-    <pre class="skill-code">### Step 1: Load and Review Plan&#10;1. Ensure an isolated workspace: use superpowers:using-git-worktrees to create one or verify the existing one&#10;2. Read plan file&#10;3. Review critically - identify any questions or concerns about the plan&#10;4. If concerns: Raise them with your human partner before starting&#10;5. If no concerns: Create todos for the plan items and proceed&#10;&#10;### Step 2: Execute Tasks&#10;&#10;For each task:&#10;1. Mark as in_progress&#10;<mark>2. Follow each step exactly (plan has bite-sized steps)</mark>&#10;3. Run verifications as specified&#10;4. Mark as completed</pre>
-    <pre class="skill-code">### Step 3: Complete Development&#10;&#10;After all tasks complete and verified:&#10;- Announce: "I'm using the finishing-a-development-branch skill to complete this work."&#10;- **REQUIRED SUB-SKILL:** Use superpowers:finishing-a-development-branch&#10;- Follow that skill to verify tests, present options, execute choice&#10;&#10;## When to Stop and Ask for Help&#10;&#10;**STOP executing immediately when:**&#10;- Hit a blocker (missing dependency, test fails, instruction unclear)&#10;- Plan has critical gaps preventing starting&#10;- You don't understand an instruction&#10;- Verification fails repeatedly&#10;&#10;**Ask for clarification rather than guessing.**</pre>
+## Keyboard Shortcuts
+
+|                                                     |                             |
+| --------------------------------------------------- | --------------------------- |
+| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
+| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
+| <kbd>up</kbd>                                       | previous slide              |
+| <kbd>down</kbd>                                     | next slide                  |
+
+<!-- https://sli.dev/guide/animations.html#click-animation -->
+<img
+  v-click
+  class="absolute -bottom-9 -left-7 w-80 opacity-50"
+  src="https://sli.dev/assets/arrow-bottom-left.svg"
+  alt=""
+/>
+<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+
+---
+layout: two-cols
+layoutClass: gap-16
+---
+
+# Table of contents
+
+You can use the `Toc` component to generate a table of contents for your slides:
+
+```html
+<Toc minDepth="1" maxDepth="1" />
+```
+
+The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+
+::right::
+
+<Toc text-sm minDepth="1" maxDepth="2" />
+
+---
+layout: image-right
+image: https://cover.sli.dev
+---
+
+# Code
+
+Use code snippets and get the highlighting directly, and even types hover!
+
+```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
+// TwoSlash enables TypeScript hover information
+// and errors in markdown code blocks
+// More at https://shiki.style/packages/twoslash
+import { computed, ref } from 'vue'
+
+const count = ref(0)
+const doubled = computed(() => count.value * 2)
+
+doubled.value = 2
+```
+
+<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
+
+<!-- This allow you to embed external code blocks -->
+<<< @/snippets/external.ts#snippet
+
+<!-- Footer -->
+
+[Learn more](https://sli.dev/features/line-highlighting)
+
+<!-- Inline style -->
+<style>
+.footnotes-sep {
+  @apply mt-5 opacity-10;
+}
+.footnotes {
+  @apply text-sm opacity-75;
+}
+.footnote-backref {
+  display: none;
+}
+</style>
+
+<!--
+Notes can also sync with clicks
+
+[click] This will be highlighted after the first click
+
+[click] Highlighted with `count = ref(0)`
+
+[click:3] Last click (skip two clicks)
+-->
+
+---
+level: 2
+---
+
+# Shiki Magic Move
+
+Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
+
+Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
+
+````md magic-move {lines: true}
+```ts {*|2|*}
+// step 1
+const author = reactive({
+  name: 'John Doe',
+  books: [
+    'Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery'
+  ]
+})
+```
+
+```ts {*|1-2|3-4|3-4,8}
+// step 2
+export default {
+  data() {
+    return {
+      author: {
+        name: 'John Doe',
+        books: [
+          'Vue 2 - Advanced Guide',
+          'Vue 3 - Basic Guide',
+          'Vue 4 - The Mystery'
+        ]
+      }
+    }
+  }
+}
+```
+
+```ts
+// step 3
+export default {
+  data: () => ({
+    author: {
+      name: 'John Doe',
+      books: [
+        'Vue 2 - Advanced Guide',
+        'Vue 3 - Basic Guide',
+        'Vue 4 - The Mystery'
+      ]
+    }
+  })
+}
+```
+
+Non-code blocks are ignored.
+
+```vue
+<!-- step 4 -->
+<script setup>
+const author = {
+  name: 'John Doe',
+  books: [
+    'Vue 2 - Advanced Guide',
+    'Vue 3 - Basic Guide',
+    'Vue 4 - The Mystery'
+  ]
+}
+</script>
+```
+````
+
+---
+
+# Components
+
+<div grid="~ cols-2 gap-4">
+<div>
+
+You can use Vue components directly inside your slides.
+
+We have provided a few built-in components like `<Tweet/>`, `<BlueSky/>`, and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+
+```html
+<Counter :count="10" />
+```
+
+<!-- ./components/Counter.vue -->
+<Counter :count="10" m="t-4" />
+
+Check out [the guides](https://sli.dev/builtin/components.html) for more.
+
+</div>
+<div>
+
+```html
+<Tweet id="1390115482657726468" />
+```
+
+<Tweet id="1390115482657726468" scale="0.65" />
+
+</div>
+</div>
+
+<!--
+Presenter note with **bold**, *italic*, and ~~striked~~ text.
+
+Also, HTML elements are valid:
+<div class="flex w-full">
+  <span style="flex-grow: 1;">Left content</span>
+  <span>Right content</span>
+</div>
+-->
+
+---
+class: px-20
+---
+
+# Themes
+
+Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
+
+<div grid="~ cols-2 gap-2" m="t-2">
+
+```yaml
+---
+theme: default
+---
+```
+
+```yaml
+---
+theme: seriph
+---
+```
+
+<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
+
+<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
+
+</div>
+
+Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
+check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
+
+---
+
+# Clicks Animations
+
+You can add `v-click` to elements to add a click animation.
+
+<div v-click>
+
+This shows up when you press <kbd>space</kbd> or <kbd>right</kbd>, or click outside the slide on the right.
+
+```html
+<div v-click>This shows up when you trigger a click animation.</div>
+```
+
+</div>
+
+<p v-click>
+You can also add modifiers to change the animation:
+</p>
+
+<div class="grid gap-3 mt-4 text-sm" style="grid-template-columns: repeat(3, 1fr) 1.5fr 1fr">
+  <div v-after.up class="p-3 rounded border border-primary/20 bg-primary/10">
+    <div class="font-mono text-xs opacity-60 mb-1">v-click.up</div>
+    <div>Slide from bottom</div>
+  </div>
+  <div v-click.fade-in class="p-3 rounded border border-primary/30 bg-primary/15">
+    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade-in</div>
+    <div>Fade in</div>
+  </div>
+  <div v-click.fade class="p-3 rounded border border-primary/40 bg-primary/20">
+    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade</div>
+    <div>Dim (0.5 opacity)</div>
+  </div>
+  <div v-click.fade.right.scale class="p-3 rounded border border-primary/50 bg-primary/25">
+    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade.right.scale</div>
+    <div>Composed</div>
+  </div>
+  <div v-click.none class="p-3 rounded border border-primary/60 bg-primary/30">
+    <div class="font-mono text-xs opacity-60 mb-1">v-click.none</div>
+    <div>No transition</div>
   </div>
 </div>
 
-<p class="bottom-thought"><span class="human">開始を記録</span> → 手順どおりに実行 → 指定の確認 → 完了を記録</p>
-<a class="source-link" href="https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/executing-plans/SKILL.md#L18-L48">出典：obra/superpowers · executing-plans</a>
-<div class="page-number">03 / 09</div>
+<v-click>
 
-<!--
-目安 1:20（累計 3:10）
-以前の私もSuperpowersにお世話になりました。計画を作り、それに沿って進め、確認する。抜けを防ぐうえで役立ちました。
-これは、決まった計画を実行するskillの実物です。全体の一部を抜き出しています。
-注目してほしいのは「各手順をそのまま実行する」という部分です。作業開始や完了の記録まで書いてあります。
-判断が不安定な相手に仕事を頼むなら、こういう手順書を用意するのは自然です。
-良い悪いではなく、どこまで先に決めて渡すか、という任せ方の話です。
-引用は固定commitの18–48行を2段に分けて表示。全文を読ませず、強調した「各手順をそのまま実行する」を指す。本文全体は64行ですが、別skillや計画への参照もあり、行数だけで比較しない。
--->
+The <span v-mark.red="7"><code>v-mark</code> directive</span>
+also allows you to add
+<span v-mark.circle.orange="8">inline marks</span>
+, powered by [Rough Notation](https://roughnotation.com/):
 
----
-class: analogy
----
+```html
+<span v-mark.underline.orange>inline markers</span>
+```
 
-<div class="eyebrow">任せる相手が変わったら</div>
+</v-click>
 
-# 経験豊富な人にも、<br>そこまで指示しますか？
+<div v-click mt-12>
 
-<div class="analogy-grid">
-  <div class="instruction-slip"><span class="file-label">たとえば、こんな指示</span><p>まず、このファイルを開く。<br>次に、この関数を書き換える。<br>この順番で。必ず、このとおりに。</p></div>
-  <div class="senior-boundary"><span class="boundary-label">任せる範囲</span><div class="senior-interior">経験豊富な<br>エンジニア</div></div>
+[Learn more](https://sli.dev/guide/animations#click-animation)
+
 </div>
 
-<div class="page-number">04 / 09</div>
-
-<!--
-目安 1:05（累計 4:15）
-入ったばかりの人なら、一つずつ説明することがあります。
-でも、十分に経験のある人を迎えたときも、開くファイルから順番まで、毎回指定するでしょうか。
-「まずこのファイルを開いて、次にこの関数を……」と読み上げて、一拍置く。笑いを取りにいきすぎない。
-ここでの指示は説明用の例で、Superpowersからの引用ではありません。
-LLMも、相手の判断に任せられる範囲が広がったなら、こちらの説明の細かさを見直せるのではないか。
-これは私の見立てです。では、何を自分で決め、何を任せるのか。
--->
-
----
-class: skill-slide matt-slide
 ---
 
-<div class="eyebrow">私が賛同する Matt Pocock の考え方</div>
+# Motions
 
-# 決めたことを渡す。実装を任せる。
+Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
 
-<div class="skill-panel">
-  <div class="file-label">implement / SKILL.md <span>本文・空行省略</span></div>
-  <pre class="skill-code">Implement the work described by the user in the spec or tickets.&#10;Use /tdd where possible, at pre-agreed seams.&#10;Run typechecking regularly, single test files regularly, and the full test suite once at the end.&#10;Once done, use /code-review to review the work.&#10;Commit your work to the current branch.</pre>
+```html
+<div
+  v-motion
+  :initial="{ x: -80 }"
+  :enter="{ x: 0 }"
+  :click-3="{ x: 80 }"
+  :leave="{ x: 1000 }"
+>
+  Slidev
 </div>
+```
 
-<p class="bottom-thought"><span class="human">仕様・確認する境界を合意</span> → <span class="ai">実装・検証</span></p>
-<p class="supporting">テストとレビューの進め方は、別のskillへ。</p>
-<a class="source-link" href="https://github.com/mattpocock/skills/blob/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/implement/SKILL.md#L7-L15">出典：mattpocock/skills · implement</a>
-<div class="page-number">05 / 09</div>
-
-<!--
-目安 1:25（累計 5:40）
-ここからは、私が強く賛同しているMatt Pocockの考え方を紹介しながら、人とAIの役割を考えていきます。
-これは、同じく決まった内容を実装するためのskillです。本文はこの5つの指示です。
-合意した仕様を実装する。事前に決めた境界でテストを書く。型やテストを確認する。レビューする。コミットする。
-どのファイルから、どの順番で変更するかは、この本文には書かれていません。
-ただ、短いから何もしなくてよいわけではありません。テストやレビューの詳しい進め方は、別のskillにあります。
-私は今、Superpowersを使わなくなりました。こうして決めるところを決め、実装は任せる考え方が、自分に合っています。
-本文の短さだけで、参照先を含む総指示量や性能の優劣を主張しない。
--->
-
----
-class: roles-slide
----
-
-<div class="eyebrow">決めることと、調べればわかること</div>
-
-# AIの質問に、うなずくだけにしない。
-
-<div class="roles-grid">
-  <div class="role-examples">
-    <div><span class="role-tag human">人間が決める</span><p>検索で、何を優先する？<br><small>速さか、結果の新しさか。</small></p></div>
-    <div><span class="role-tag ai">AIが調べる</span><p>今の検索は、どう動く？<br><small>コードとテストを調べる。</small></p></div>
+<div class="w-60 relative">
+  <div class="relative w-40 h-40">
+    <img
+      v-motion
+      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
+      :enter="final"
+      class="absolute inset-0"
+      src="https://sli.dev/logo-square.png"
+      alt=""
+    />
+    <img
+      v-motion
+      :initial="{ y: 500, x: -100, scale: 2 }"
+      :enter="final"
+      class="absolute inset-0"
+      src="https://sli.dev/logo-circle.png"
+      alt=""
+    />
+    <img
+      v-motion
+      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
+      :enter="final"
+      class="absolute inset-0"
+      src="https://sli.dev/logo-triangle.png"
+      alt=""
+    />
   </div>
-  <div class="ownership-boundary"><span class="boundary-label">人間：外からどう使い、どう動くか</span><div class="ownership-interior"><span class="role-tag ai">AI：内部の実装</span><p>調査 → 提案 → 実装 → 検証</p></div><span class="boundary-caption">設計と方針を合意してから、内側を任せる。</span></div>
+
+  <div
+    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
+    v-motion
+    :initial="{ x: -80, opacity: 0}"
+    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
+    Slidev
+  </div>
 </div>
 
-<a class="source-link" href="https://www.aihero.dev/skills-grilling">出典：The /grilling Skill</a>
-<div class="page-number">06 / 09</div>
+<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
+<script setup lang="ts">
+const final = {
+  x: 0,
+  y: 0,
+  rotate: 0,
+  scale: 1,
+  transition: {
+    type: 'spring',
+    damping: 10,
+    stiffness: 20,
+    mass: 2
+  }
+}
+</script>
 
-<!--
-目安 1:30（累計 7:10）
-たとえば検索を改善するとします。今のコードがどう動くかは、AIが調べればわかることです。
-一方、速さと結果の新しさのどちらを優先するかは、利用者に何を届けたいかによって変わる。そこは自分で考える。
-AIには選択肢や推奨案も出してもらいます。でも、「はい、はい」と答え続けて、いつの間にかAIが決めたものを作る状態にはしない。
-設計も人間の仕事に残ります。何を受け取り、何を返し、どう振る舞うか。その約束を決めたうえで、中身の実装を任せる。
-すべての実装上の選択を人間に戻す、という意味ではありません。合意した境界の中の細かな判断は任せます。
-検索の例は発表用の説明例。Mattの直接の引用ではない。
-補助出典：https://www.aihero.dev/skills-grill-me と https://www.aihero.dev/how-to-make-codebases-ai-agents-love
--->
+<div
+  v-motion
+  :initial="{ x:35, y: 30, opacity: 0}"
+  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
 
----
-class: checks-slide
----
+[Learn more](https://sli.dev/guide/animations.html#motion)
 
-<div class="eyebrow">任せるために、確かめ方を決める</div>
-
-# 作り方の指図は減らす。<br>守る条件は、明確にする。
-
-<div class="verification-flow">
-  <div class="flow-step human-step"><span class="role-tag human">人間と合意</span><h2>期待する動き</h2><p>何ができればよいか</p></div>
-  <span class="flow-arrow" aria-hidden="true">→</span>
-  <div class="flow-step ai-step"><span class="role-tag ai">AIに任せる</span><h2>実装と修正</h2><p>中身をどう作るか</p></div>
-  <span class="flow-arrow" aria-hidden="true">→</span>
-  <div class="flow-step test-step"><span class="role-tag test">結果を確かめる</span><h2>テスト・型・レビュー</h2><p>約束どおりに動くか</p></div>
 </div>
 
-<p class="supporting">確認で問題が見つかれば修正する。方針を変えるなら、人間と相談する。</p>
-<a class="source-link" href="https://www.aihero.dev/5-agent-skills-i-use-every-day">参考：5 Agent Skills I Use Every Day</a>
-<div class="page-number">07 / 09</div>
-
-<!--
-目安 1:05（累計 8:15）
-作り方の指図を減らす、というのは私の考えです。Matt自身は、明確で厳格な進め方が重要だと述べています。
-この二つは両立します。どの行をどう変えるかまで指定しなくても、何を守るか、どう確かめるかは決められる。
-期待する動きをテストにし、型やレビューで確かめる。問題があればAIが直す。
-そもそもの仕様を変える必要があれば、そこで人間と相談する。
-テストが通れば、現実のあらゆる正しさが証明されるわけではありません。何を確かめるかを決め、結果を吟味する仕事は残ります。
--->
-
----
-class: conclusion
 ---
 
-<div class="eyebrow">Matt Pocock の言葉で</div>
+# $\LaTeX$
 
-# 人間とAIの役割
+$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
 
-<div class="quote-lines">
-  <div class="quote-line human" v-click="1"><p>人間が、外から見える振る舞いを決める。</p><small>You own the interface.</small></div>
-  <div class="quote-line ai" v-click="2"><p>AIが、中身を実装する。</p><small>AI owns the implementation.</small></div>
-  <div class="quote-line test" v-click="3"><p>テストが、その正しさを確かめる。</p><small>Tests keep it honest.</small></div>
+<div h-3 />
+
+Inline $\sqrt{3x-1}+(1+x)^2$
+
+Block
+$$ {1|3|all}
+\begin{aligned}
+\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
+\nabla \cdot \vec{B} &= 0 \\
+\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
+\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
+\end{aligned}
+$$
+
+[Learn more](https://sli.dev/features/latex)
+
+---
+
+# Diagrams
+
+You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+
+<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
+
+```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
+sequenceDiagram
+    Alice->John: Hello John, how are you?
+    Note over Alice,John: A typical interaction
+```
+
+```mermaid {theme: 'neutral', scale: 0.8}
+graph TD
+B[Text] --> C{Decision}
+C -->|One| D[Result 1]
+C -->|Two| E[Result 2]
+```
+
+```mermaid
+mindmap
+  root((mindmap))
+    Origins
+      Long history
+      ::icon(fa fa-book)
+      Popularisation
+        British popular psychology author Tony Buzan
+    Research
+      On effectiveness<br/>and features
+      On Automatic creation
+        Uses
+            Creative techniques
+            Strategic planning
+            Argument mapping
+    Tools
+      Pen and paper
+      Mermaid
+```
+
+```plantuml {scale: 0.7}
+@startuml
+
+package "Some Group" {
+  HTTP - [First Component]
+  [Another Component]
+}
+
+node "Other Groups" {
+  FTP - [Second Component]
+  [First Component] --> FTP
+}
+
+cloud {
+  [Example 1]
+}
+
+database "MySql" {
+  folder "This is my folder" {
+    [Folder 3]
+  }
+  frame "Foo" {
+    [Frame 4]
+  }
+}
+
+[Another Component] --> [Example 1]
+[Example 1] --> [Folder 3]
+[Folder 3] --> [Frame 4]
+
+@enduml
+```
+
 </div>
 
-<a class="source-link" href="https://www.aihero.dev/how-to-make-codebases-ai-agents-love">Matt Pocock · How To Make Codebases AI Agents Love（日本語は訳）</a>
-<div class="page-number">08 / 09</div>
-
-<!--
-目安 1:00（累計 9:15）
-あくまで、今の私の中での結論です。
-Matt Pocockのこの言葉に、私の考えはほぼすべて入っています。
-[click] 人間が、外から見える振る舞いを決める。
-[click] AIが、中身を実装する。
-[click] テストが、その正しさを確かめる。
-数秒、間を置く。ここで解説を重ねずに終える。
-日本語は発表用の訳。interfaceは、モジュールの入出力や振る舞いの約束を指す。
--->
+Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
 
 ---
-class: references
+foo: bar
+dragPos:
+  square: 691,32,167,_,-16
 ---
 
-<div class="eyebrow">続きはこちらから</div>
+# Draggable Elements
 
-# 参考資料
+Double-click on the draggable elements to edit their positions.
 
-<div class="reference-list">
-  <a href="https://www.aihero.dev/how-to-make-codebases-ai-agents-love"><span>設計と実装の役割分担・最後の引用</span><small>aihero.dev/how-to-make-codebases-ai-agents-love</small></a>
-  <a href="https://www.aihero.dev/skills-grilling"><span>調べることと、決めること</span><small>aihero.dev/skills-grilling</small></a>
-  <a href="https://www.aihero.dev/skills-grill-me"><span>人間が話の範囲を握る</span><small>aihero.dev/skills-grill-me</small></a>
-  <a href="https://www.aihero.dev/5-agent-skills-i-use-every-day"><span>Matt Pocockが使うskillと進め方</span><small>aihero.dev/5-agent-skills-i-use-every-day</small></a>
-  <a href="https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/executing-plans/SKILL.md"><span>Superpowers：計画を実行するskill</span><small>github.com/obra/superpowers · executing-plans</small></a>
-  <a href="https://github.com/mattpocock/skills/blob/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/implement/SKILL.md"><span>Matt Pocock：実装するskill</span><small>github.com/mattpocock/skills · implement</small></a>
-</div>
+<br>
 
-<div class="page-number">09 / 09</div>
+###### Directive Usage
 
-<!--
-目安 0:10（累計 9:25、残り35秒は間と切り替えの余裕）
-参考資料はこちらです。ありがとうございました。
-リンクはクリック可能。比較したskillは引用時点のcommitに固定。
-画像3点の出典は差し替え時に追加する。リンク一覧を読み上げる必要はない。
--->
+```md
+<img v-drag="'square'" src="https://sli.dev/logo.png">
+```
+
+<br>
+
+###### Component Usage
+
+```md
+<v-drag text-3xl>
+  <div class="i-carbon:arrow-up" />
+  Use the `v-drag` component to have a draggable container!
+</v-drag>
+```
+
+<v-drag pos="663,206,261,_,-15">
+  <div text-center text-3xl border border-main rounded>
+    Double-click me!
+  </div>
+</v-drag>
+
+<img v-drag="'square'" src="https://sli.dev/logo.png">
+
+###### Draggable Arrow
+
+```md
+<v-drag-arrow two-way />
+```
+
+<v-drag-arrow pos="67,452,253,46" two-way op70 />
+
+---
+src: ./pages/imported-slides.md
+hide: false
+---
+
+---
+
+# Monaco Editor
+
+Slidev provides built-in Monaco Editor support.
+
+Add `{monaco}` to the code block to turn it into an editor:
+
+```ts {monaco}
+import { ref } from 'vue'
+import { emptyArray } from './external'
+
+const arr = ref(emptyArray(10))
+```
+
+Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
+
+```ts {monaco-run}
+import { version } from 'vue'
+import { emptyArray, sayHello } from './external'
+
+sayHello()
+console.log(`vue ${version}`)
+console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
+```
+
+---
+layout: center
+class: text-center
+---
+
+# Learn More
+
+[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+
+<PoweredBySlidev mt-10 />
