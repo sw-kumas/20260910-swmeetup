@@ -31,19 +31,23 @@ exportFilename: ai-senior-engineer
   <div class="cover-interior"><span>AIに任せる</span></div>
 </div>
 
-<div class="page-number">01 / 10</div>
+<div class="page-number">01 / 09</div>
 
 <!--
-皆さんお疲れ様です。先週GPT6が公開されましたので、いろんな検証動画やブログをみて、「また一段と賢くなったな」と感じましたが、「じゃ結局人間がやらなければいけない仕事は残りなにがあるのか」とも思いましたので、今回は「AIがシニアエンジニアになったとき、人とAIの役割がどうなるか」というテーマについてお話をさせていただきます。
+目安 0:35（累計 0:35）
+今日は、AIが賢くなると、私たちの仕事はどう変わるのか、という話です。
+コードをどれだけ速く書けるかより、何を自分で考えて、どこをAIに任せるか。
+最近見たGPT-6の検証動画をきっかけに、今の自分の考えを整理しました。
+「シニア」はLLMへの任せ方を考えるための比喩です。能力や経験年数を測った結果ではありません。
 -->
 
 ---
 class: observation
 ---
 
-<div class="eyebrow">公開されている検証動画を見た感想</div>
+<div class="eyebrow">公開された検証動画を見て</div>
 
-# GPT6は賢くなった。
+# 賢くなった。<br>任せ方は、そのままでいい？
 
 <div class="image-grid">
   <figure><div class="image-placeholder" role="img" aria-label="検証動画の画像1を後から差し替える枠"><span>01</span><small>画像を差し替え</small></div><figcaption>検証例 1</figcaption></figure>
@@ -51,24 +55,26 @@ class: observation
   <figure><div class="image-placeholder" role="img" aria-label="検証動画の画像3を後から差し替える枠"><span>03</span><small>画像を差し替え</small></div><figcaption>検証例 3</figcaption></figure>
 </div>
 
-<p class="bottom-thought">手順を細かく決めるほど、賢くなった差を感じにくい気がする。</p>
-<div class="page-number">02 / 10</div>
+<p class="bottom-thought">細かな手順の中では、進化の差が小さく見えることがある。</p>
+<div class="page-number">02 / 09</div>
 
 <!--
-先ほども話しましたが、私はまだGPT6をそこまで使い込んでいませんので、ここから話すことは、いろんな方の検証動画やブログを見たうえでの感想になります。
-
-画像を作ったり3Dのものを動かしたり、これまで難しかったことがかなりできるようになっていて、モデル自体はやっぱり賢くなっていると思います。ただ、細かな手順をたくさん与えた環境で動かしているのを見ると、以前のモデルとそこまで変わらないように見えることもありました。
-
-もちろん同じ条件で比べたわけではありませんので、手順が原因だとは言い切れませんが、モデルが変わったのに、こちらの使い方は今までのままでいいのかな、という疑問を持ちました。
+目安 1:15（累計 1:50）
+私はGPT-6を十分に使い込んでいるわけではありません。ここは、ネットにあるいろいろな人の検証動画を見た所感です。
+画像や3Dなど、作っているものを見ると、かなり賢くなったように見える。
+その一方で、細かな手順をたくさん与えた環境だと、前のモデルとの差があまり大きく見えないことがありました。
+同じ条件で比較した実験ではないので、手順が原因だと断定はできません。
+ただ、モデルが変わったのに、こちらの任せ方が変わっていないのでは、と思いました。
+画像差し替え時：各動画の実際の内容に合わせて説明を調整し、出典URLを画像のキャプションと参考資料へ追加する。
 -->
 
 ---
 class: skill-slide
 ---
 
-<div class="eyebrow">以前、私も使っていたSuperpowers</div>
+<div class="eyebrow">以前、私も使っていた Superpowers</div>
 
-# かなり細かいところまで、<br>やり方が決まっている。
+# 手順を、ここまで書いておく。
 
 <div class="skill-panel">
   <div class="file-label">executing-plans / SKILL.md <span>原文抜粋・2段組</span></div>
@@ -78,216 +84,183 @@ class: skill-slide
   </div>
 </div>
 
-<p class="bottom-thought">計画どおりに進めて、途中の確認方法や止める条件まで決めておく。</p>
+<p class="bottom-thought"><span class="human">開始を記録</span> → 手順どおりに実行 → 指定の確認 → 完了を記録</p>
 <a class="source-link" href="https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/executing-plans/SKILL.md#L18-L48">出典：obra/superpowers · executing-plans</a>
-<div class="page-number">03 / 10</div>
+<div class="page-number">03 / 09</div>
 
 <!--
-これは、私も以前使っていたSuperpowersのskillです。計画を作って、その計画に沿って進めて、途中で問題があれば止めるという形になっていますので、抜け漏れを減らすうえではかなり助かりました。
-
-実際の文章を見ると、まず作業用の場所を用意して、計画を読んで、問題がないか確認してから始める。実装に入ったら、それぞれの手順をそのまま実行する。最後に別のskillを呼び出して完了まで進める、というところまで決まっています。
-
-当時のモデルに仕事を任せるなら、ここまで細かく手順を書いておくのは普通だったと思いますし、私自身もそれで助けられました。
--->
-
----
-class: why-superpowers
----
-
-<div class="eyebrow">Superpowersのskillの作り方</div>
-
-# なぜ、ここまで長くて細かいのか？
-
-<div class="why-grid">
-  <div class="skill-shape">
-    <span class="role-tag human">SKILL.mdに書く項目</span>
-    <div class="shape-list">
-      <span>いつ使うか</span>
-      <span>基本の考え方</span>
-      <span>すぐ確認できる一覧</span>
-      <span>具体的な進め方</span>
-      <span>よくある間違い</span>
-      <span>実際に使った結果</span>
-    </div>
-  </div>
-  <div class="skill-tdd">
-    <span class="role-tag ai">skillを書く流れ</span>
-    <div class="tdd-list">
-      <span><b>1</b> skillなしで試す</span>
-      <span><b>2</b> どこで失敗したかを見る</span>
-      <span><b>3</b> 失敗を防ぐ指示を書く</span>
-      <span><b>4</b> 抜け道があれば、また足す</span>
-    </div>
-  </div>
-</div>
-
-<p class="bottom-thought">守らせたいことが多いほど、skillも長くなる。</p>
-<a class="source-link" href="https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md">出典：obra/superpowers · writing-skills</a>
-<div class="page-number">04 / 10</div>
-
-<!--
-では、なぜSuperpowersのskillはここまで長くて細かいのか。実は、skillの書き方を決めるwriting-skillsというskillがあって、その中に基本の構造がかなり細かく書かれています。
-
-左側にあるように、いつ使うか、基本の考え方、すぐ確認できる一覧、具体的な進め方、よくある間違い、実際に使った結果、という項目を入れる形になっています。
-
-さらに、skillを作るときもTDDと同じように、まずskillがない状態でAIに作業させて、どこで失敗するかを確認します。その失敗を防ぐ指示を書いて、もう一度試す。そこでAIが別の抜け道を見つけたら、その抜け道を防ぐ指示も追加します。
-
-AIに決めた手順をきちんと守らせるための作り方になっていますので、守らせたいことが多いskillほど、文章も長くなります。
+目安 1:20（累計 3:10）
+以前の私もSuperpowersにお世話になりました。計画を作り、それに沿って進め、確認する。抜けを防ぐうえで役立ちました。
+これは、決まった計画を実行するskillの実物です。全体の一部を抜き出しています。
+注目してほしいのは「各手順をそのまま実行する」という部分です。作業開始や完了の記録まで書いてあります。
+判断が不安定な相手に仕事を頼むなら、こういう手順書を用意するのは自然です。
+良い悪いではなく、どこまで先に決めて渡すか、という任せ方の話です。
+引用は固定commitの18–48行を2段に分けて表示。全文を読ませず、強調した「各手順をそのまま実行する」を指す。本文全体は64行ですが、別skillや計画への参照もあり、行数だけで比較しない。
 -->
 
 ---
 class: analogy
 ---
 
-<div class="eyebrow">人に置き換えて考えてみる</div>
+<div class="eyebrow">任せる相手が変わったら</div>
 
-# 経験10年の人にも、<br>ここまで細かく指示するだろうか？
+# 経験豊富な人にも、<br>そこまで指示しますか？
 
 <div class="analogy-grid">
-  <div class="instruction-slip"><span class="file-label">たとえば、こんな指示</span><p>まず、このファイルを開く。<br>次に、この関数を書き換える。<br>必ず、この順番で進める。</p></div>
-  <div class="senior-boundary"><span class="boundary-label">仕事を任せる相手</span><div class="senior-interior">経験10年の<br>エンジニア</div></div>
+  <div class="instruction-slip"><span class="file-label">たとえば、こんな指示</span><p>まず、このファイルを開く。<br>次に、この関数を書き換える。<br>この順番で。必ず、このとおりに。</p></div>
+  <div class="senior-boundary"><span class="boundary-label">任せる範囲</span><div class="senior-interior">経験豊富な<br>エンジニア</div></div>
 </div>
 
-<div class="page-number">05 / 10</div>
+<div class="page-number">04 / 09</div>
 
 <!--
-ここで、LLMを人に置き換えて考えてみます。たとえば入社したばかりの人であれば、最初はファイルの場所から作業の順番まで、一つずつ説明することがあると思います。
-
-では、相手が経験10年のエンジニアだった場合も、まずこのファイルを開いて、次にこの関数を書き換えて、必ずこの順番で進めてください、と毎回説明するでしょうか。たぶん、そこまで言わなくても目的を伝えれば、自分で調べて進めてくれると思います。
-
-今のLLMも、自分で判断できる範囲が広がっているのであれば、こちらが説明する細かさも変えていいんじゃないか、と私は考えています。
+目安 1:05（累計 4:15）
+入ったばかりの人なら、一つずつ説明することがあります。
+でも、十分に経験のある人を迎えたときも、開くファイルから順番まで、毎回指定するでしょうか。
+「まずこのファイルを開いて、次にこの関数を……」と読み上げて、一拍置く。笑いを取りにいきすぎない。
+ここでの指示は説明用の例で、Superpowersからの引用ではありません。
+LLMも、相手の判断に任せられる範囲が広がったなら、こちらの説明の細かさを見直せるのではないか。
+これは私の見立てです。では、何を自分で決め、何を任せるのか。
 -->
 
 ---
 class: skill-slide matt-slide
 ---
 
-<div class="eyebrow">私が今使っているMatt Pocockのskills</div>
+<div class="eyebrow">私が賛同する Matt Pocock の考え方</div>
 
-# 必要なことだけ決めて、<br>実装はAIに任せる。
+# 決めたことを渡す。実装を任せる。
 
 <div class="skill-panel">
   <div class="file-label">implement / SKILL.md <span>本文・空行省略</span></div>
   <pre class="skill-code">Implement the work described by the user in the spec or tickets.&#10;Use /tdd where possible, at pre-agreed seams.&#10;Run typechecking regularly, single test files regularly, and the full test suite once at the end.&#10;Once done, use /code-review to review the work.&#10;Commit your work to the current branch.</pre>
 </div>
 
-<p class="bottom-thought">仕様とテストを書く場所は先に決めて、実装と確認はAIに任せる。</p>
-<p class="supporting">TDDとコードレビューは、それぞれ別のskillに分かれている。</p>
+<p class="bottom-thought"><span class="human">仕様・確認する境界を合意</span> → <span class="ai">実装・検証</span></p>
+<p class="supporting">テストとレビューの進め方は、別のskillへ。</p>
 <a class="source-link" href="https://github.com/mattpocock/skills/blob/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/implement/SKILL.md#L7-L15">出典：mattpocock/skills · implement</a>
-<div class="page-number">06 / 10</div>
+<div class="page-number">05 / 09</div>
 
 <!--
-ここからは、今の自分の考え方にかなり近い、Matt Pocockのskillsを紹介します。これから話す内容は、基本的にMattの考え方を参考にしています。
-
-こちらも先ほどと同じく、決まっている内容を実装するためのskillですが、書いてあるのはこの5つだけです。仕様やチケットに書かれた内容を実装する。事前に決めた場所でTDDを使う。型とテストを確認して、最後にコードレビューをしてコミットする。
-
-どのファイルから触るのか、どの順番で変更するのかまでは書かれていません。TDDとコードレビューの詳しい進め方も、それぞれ別のskillに分かれていますので、実装の途中で必要になったときだけ読みます。
-
-私は今、Superpowersを使わなくなっていて、先に必要なことだけ決めたら、あとの実装はAIに任せるというやり方をしています。
+目安 1:25（累計 5:40）
+ここからは、私が強く賛同しているMatt Pocockの考え方を紹介しながら、人とAIの役割を考えていきます。
+これは、同じく決まった内容を実装するためのskillです。本文はこの5つの指示です。
+合意した仕様を実装する。事前に決めた境界でテストを書く。型やテストを確認する。レビューする。コミットする。
+どのファイルから、どの順番で変更するかは、この本文には書かれていません。
+ただ、短いから何もしなくてよいわけではありません。テストやレビューの詳しい進め方は、別のskillにあります。
+私は今、Superpowersを使わなくなりました。こうして決めるところを決め、実装は任せる考え方が、自分に合っています。
+本文の短さだけで、参照先を含む総指示量や性能の優劣を主張しない。
 -->
 
 ---
 class: roles-slide
 ---
 
-<div class="eyebrow">調べればわかることはAIが調べる</div>
+<div class="eyebrow">決めることと、調べればわかること</div>
 
-# AIに聞かれたことを、<br>全部そのまま決めない。
+# AIの質問に、うなずくだけにしない。
 
 <div class="roles-grid">
   <div class="role-examples">
-    <div><span class="role-tag human">人間が決める</span><p>検索で何を優先する？<br><small>速さか、結果の新しさか。</small></p></div>
-    <div><span class="role-tag ai">AIが調べる</span><p>今の検索はどう動く？<br><small>コードとテストを調べる。</small></p></div>
+    <div><span class="role-tag human">人間が決める</span><p>検索で、何を優先する？<br><small>速さか、結果の新しさか。</small></p></div>
+    <div><span class="role-tag ai">AIが調べる</span><p>今の検索は、どう動く？<br><small>コードとテストを調べる。</small></p></div>
   </div>
-  <div class="ownership-boundary"><span class="boundary-label">人間：どう使うか、どう動いてほしいか</span><div class="ownership-interior"><span class="role-tag ai">AI：中の作り方</span><p>調べる → 提案する → 実装する → 確認する</p></div><span class="boundary-caption">ここまでを一緒に決めたら、中の作り方は任せる。</span></div>
+  <div class="ownership-boundary"><span class="boundary-label">人間：外からどう使い、どう動くか</span><div class="ownership-interior"><span class="role-tag ai">AI：内部の実装</span><p>調査 → 提案 → 実装 → 検証</p></div><span class="boundary-caption">設計と方針を合意してから、内側を任せる。</span></div>
 </div>
 
 <a class="source-link" href="https://www.aihero.dev/skills-grilling">出典：The /grilling Skill</a>
-<div class="page-number">07 / 10</div>
+<div class="page-number">06 / 09</div>
 
 <!--
-Mattのskillsでは、調べればわかることと、人間が決めなければいけないことを分けています。
-
-たとえば検索機能を改善するとき、今の検索がどう動いているのかは、コードやテストを見ればわかりますので、そこはAIに調べてもらいます。一方で、検索の速さと結果の新しさのどちらを優先するのかは、作りたいものによって変わりますので、そこは人間が決めます。もちろんAIには選択肢やおすすめも出してもらいますが、聞かれたことに全部「はい」と答えて、いつの間にかAIが決めたものを作っていた、という状態にはしません。
-
-設計についても同じで、外からどう使うのか、どんな動きを期待するのかは一緒に決めます。そこまで決まったら、中をどう作るかはAIに任せます。
+目安 1:30（累計 7:10）
+たとえば検索を改善するとします。今のコードがどう動くかは、AIが調べればわかることです。
+一方、速さと結果の新しさのどちらを優先するかは、利用者に何を届けたいかによって変わる。そこは自分で考える。
+AIには選択肢や推奨案も出してもらいます。でも、「はい、はい」と答え続けて、いつの間にかAIが決めたものを作る状態にはしない。
+設計も人間の仕事に残ります。何を受け取り、何を返し、どう振る舞うか。その約束を決めたうえで、中身の実装を任せる。
+すべての実装上の選択を人間に戻す、という意味ではありません。合意した境界の中の細かな判断は任せます。
+検索の例は発表用の説明例。Mattの直接の引用ではない。
+補助出典：https://www.aihero.dev/skills-grill-me と https://www.aihero.dev/how-to-make-codebases-ai-agents-love
 -->
 
 ---
 class: checks-slide
 ---
 
-<div class="eyebrow">任せるためにテストを使う</div>
+<div class="eyebrow">任せるために、確かめ方を決める</div>
 
-# 手順は細かく決めない。<br>その代わり、完成の条件は決めておく。
+# 作り方の指図は減らす。<br>守る条件は、明確にする。
 
 <div class="verification-flow">
-  <div class="flow-step human-step"><span class="role-tag human">人間とAIで決める</span><h2>完成の条件</h2><p>どう動けば完成なのか</p></div>
+  <div class="flow-step human-step"><span class="role-tag human">人間と合意</span><h2>期待する動き</h2><p>何ができればよいか</p></div>
   <span class="flow-arrow" aria-hidden="true">→</span>
-  <div class="flow-step ai-step"><span class="role-tag ai">AIに任せる</span><h2>実装する</h2><p>中をどう作るか</p></div>
+  <div class="flow-step ai-step"><span class="role-tag ai">AIに任せる</span><h2>実装と修正</h2><p>中身をどう作るか</p></div>
   <span class="flow-arrow" aria-hidden="true">→</span>
-  <div class="flow-step test-step"><span class="role-tag test">テストで確認する</span><h2>テスト・型・レビュー</h2><p>決めたとおりに動くか</p></div>
+  <div class="flow-step test-step"><span class="role-tag test">結果を確かめる</span><h2>テスト・型・レビュー</h2><p>約束どおりに動くか</p></div>
 </div>
 
-<p class="supporting">問題が見つかったらAIが直し、方針から変える場合は人間に戻す。</p>
+<p class="supporting">確認で問題が見つかれば修正する。方針を変えるなら、人間と相談する。</p>
 <a class="source-link" href="https://www.aihero.dev/5-agent-skills-i-use-every-day">参考：5 Agent Skills I Use Every Day</a>
-<div class="page-number">08 / 10</div>
+<div class="page-number">07 / 09</div>
 
 <!--
-ここまで聞くと、AIに好きなように書かせるだけなのか、と思うかもしれませんが、そういうことではありません。Matt自身も、進め方をはっきり決めることは重要だと言っています。
-
-私が減らしたいのは、どのファイルの何行目を変えるかといった、実装の細かな指示です。その代わり、どう動けば完成なのかは先に決めて、テストや型、コードレビューで確認します。問題が見つかったらAIに直してもらい、そもそもの方針を変える必要が出た場合は、そこで人間に戻します。
-
-AIに任せる範囲が広がるほど、完成の条件を人間がきちんと考える必要があると思います。
+目安 1:05（累計 8:15）
+作り方の指図を減らす、というのは私の考えです。Matt自身は、明確で厳格な進め方が重要だと述べています。
+この二つは両立します。どの行をどう変えるかまで指定しなくても、何を守るか、どう確かめるかは決められる。
+期待する動きをテストにし、型やレビューで確かめる。問題があればAIが直す。
+そもそもの仕様を変える必要があれば、そこで人間と相談する。
+テストが通れば、現実のあらゆる正しさが証明されるわけではありません。何を確かめるかを決め、結果を吟味する仕事は残ります。
 -->
 
 ---
 class: conclusion
 ---
 
-<div class="eyebrow">最後にMatt Pocockの言葉を紹介します</div>
+<div class="eyebrow">Matt Pocock の言葉で</div>
 
-# 今の自分の結論
+# 人間とAIの役割
 
 <div class="quote-lines">
-  <div class="quote-line human" v-click="1"><p>人間が、外からどう使うかを決める。</p><small>You own the interface.</small></div>
-  <div class="quote-line ai" v-click="2"><p>AIが、中を実装する。</p><small>AI owns the implementation.</small></div>
-  <div class="quote-line test" v-click="3"><p>テストで、期待どおりに動くか確認する。</p><small>Tests keep it honest.</small></div>
+  <div class="quote-line human" v-click="1"><p>人間が、外から見える振る舞いを決める。</p><small>You own the interface.</small></div>
+  <div class="quote-line ai" v-click="2"><p>AIが、中身を実装する。</p><small>AI owns the implementation.</small></div>
+  <div class="quote-line test" v-click="3"><p>テストが、その正しさを確かめる。</p><small>Tests keep it honest.</small></div>
 </div>
 
 <a class="source-link" href="https://www.aihero.dev/how-to-make-codebases-ai-agents-love">Matt Pocock · How To Make Codebases AI Agents Love（日本語は訳）</a>
-<div class="page-number">09 / 10</div>
+<div class="page-number">08 / 09</div>
 
 <!--
-最後に、これはあくまで今の自分の中での結論ですが、Matt Pocockのこの言葉に、私の考えがほぼ全部入っています。
-
-[click] 人間が、外からどう使うかを決める。
-[click] AIが、中を実装する。
-[click] そして、テストで期待どおりに動くかを確認する。
-
-モデルがさらに賢くなっても、この三つのうち人間が持つところは、たぶん残り続けるんじゃないかと思います。
+目安 1:00（累計 9:15）
+あくまで、今の私の中での結論です。
+Matt Pocockのこの言葉に、私の考えはほぼすべて入っています。
+[click] 人間が、外から見える振る舞いを決める。
+[click] AIが、中身を実装する。
+[click] テストが、その正しさを確かめる。
+数秒、間を置く。ここで解説を重ねずに終える。
+日本語は発表用の訳。interfaceは、モジュールの入出力や振る舞いの約束を指す。
 -->
 
 ---
 class: references
 ---
 
-<div class="eyebrow">今回紹介したもの</div>
+<div class="eyebrow">続きはこちらから</div>
 
 # 参考資料
 
 <div class="reference-list">
-  <a href="https://www.aihero.dev/how-to-make-codebases-ai-agents-love"><span>人間が設計し、AIが実装するという考え方</span><small>aihero.dev/how-to-make-codebases-ai-agents-love</small></a>
-  <a href="https://www.aihero.dev/skills-grilling"><span>AIが調べることと、人間が決めること</span><small>aihero.dev/skills-grilling</small></a>
-  <a href="https://www.aihero.dev/skills-grill-me"><span>何を作るかは人間が決める</span><small>aihero.dev/skills-grill-me</small></a>
-  <a href="https://www.aihero.dev/5-agent-skills-i-use-every-day"><span>Matt Pocockが普段使っているskills</span><small>aihero.dev/5-agent-skills-i-use-every-day</small></a>
-  <a href="https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/executing-plans/SKILL.md"><span>Superpowersのexecuting-plans</span><small>github.com/obra/superpowers · executing-plans</small></a>
-  <a href="https://github.com/mattpocock/skills/blob/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/implement/SKILL.md"><span>Matt Pocockのimplement</span><small>github.com/mattpocock/skills · implement</small></a>
-  <a href="https://github.com/obra/superpowers/blob/main/skills/writing-skills/SKILL.md"><span>Superpowersのwriting-skills</span><small>github.com/obra/superpowers · writing-skills</small></a>
+  <a href="https://www.aihero.dev/how-to-make-codebases-ai-agents-love"><span>設計と実装の役割分担・最後の引用</span><small>aihero.dev/how-to-make-codebases-ai-agents-love</small></a>
+  <a href="https://www.aihero.dev/skills-grilling"><span>調べることと、決めること</span><small>aihero.dev/skills-grilling</small></a>
+  <a href="https://www.aihero.dev/skills-grill-me"><span>人間が話の範囲を握る</span><small>aihero.dev/skills-grill-me</small></a>
+  <a href="https://www.aihero.dev/5-agent-skills-i-use-every-day"><span>Matt Pocockが使うskillと進め方</span><small>aihero.dev/5-agent-skills-i-use-every-day</small></a>
+  <a href="https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/executing-plans/SKILL.md"><span>Superpowers：計画を実行するskill</span><small>github.com/obra/superpowers · executing-plans</small></a>
+  <a href="https://github.com/mattpocock/skills/blob/3cca18b368ae95cdbdebbff572ccafa662551015/skills/engineering/implement/SKILL.md"><span>Matt Pocock：実装するskill</span><small>github.com/mattpocock/skills · implement</small></a>
 </div>
 
-<div class="page-number">10 / 10</div>
+<div class="page-number">09 / 09</div>
 
 <!--
-今回紹介した資料はこちらにまとめていますので、気になるものがあれば後で見てみてください。以上です。ありがとうございました。
+目安 0:10（累計 9:25、残り35秒は間と切り替えの余裕）
+参考資料はこちらです。ありがとうございました。
+リンクはクリック可能。比較したskillは引用時点のcommitに固定。
+画像3点の出典は差し替え時に追加する。リンク一覧を読み上げる必要はない。
 -->
