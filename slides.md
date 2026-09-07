@@ -1,662 +1,379 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
+theme: default
+title: AIにHowを教える必要がなくなったかもしれない
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply UnoCSS classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
+  SuperpowersとMatt Pocock Skillsの設計思想を比較します。
+colorSchema: light
 drawings:
   persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
-transition: slide-left
-# enable Comark Syntax: https://comark.dev/syntax/markdown
-comark: true
-# duration of the presentation
-duration: 35min
----
-
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
-
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
 transition: fade-out
+comark: true
+duration: 10min
+layout: default
+class: swiss-cover
 ---
 
-# What is Slidev?
+<div class="cover-field">
+  <h1 class="cover-title">
+    AIに<span class="cover-em">How</span>を教える必要が<br>
+    なくなったかもしれない
+  </h1>
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
-
----
-transition: slide-up
-level: 2
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: two-cols
-layoutClass: gap-16
----
-
-# Table of contents
-
-You can use the `Toc` component to generate a table of contents for your slides:
-
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
-
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
-
-::right::
-
-<Toc text-sm minDepth="1" maxDepth="2" />
-
----
-layout: image-right
-image: https://cover.sli.dev
----
-
-# Code
-
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts [filename-example.ts] {all|4|6|6-7|9|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="342" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>`, `<BlueSky/>`, and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
+  <div class="cover-foot">
+    Superpowers から Matt Pocock Skills へ
+  </div>
 </div>
 
 <!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
+本日は、最近私がSuperpowersを使わなくなり、代わりにMatt Pocock Skillsを使うようになった理由をお話しします。
 -->
 
 ---
-class: px-20
+layout: default
+class: swiss-light
 ---
 
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
+<div class="page-head">
+  <div class="page-kicker">SUPERPOWERS / WORKFLOW</div>
+  <h1 class="page-title">Superpowersのワークフロー</h1>
 </div>
 
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you press <kbd>space</kbd> or <kbd>right</kbd>, or click outside the slide on the right.
-
-```html
-<div v-click>This shows up when you trigger a click animation.</div>
-```
-
-</div>
-
-<p v-click>
-You can also add modifiers to change the animation:
-</p>
-
-<div class="grid gap-3 mt-4 text-sm" style="grid-template-columns: repeat(3, 1fr) 1.5fr 1fr">
-  <div v-after.up class="p-3 rounded border border-primary/20 bg-primary/10">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.up</div>
-    <div>Slide from bottom</div>
+<div class="timeline">
+  <div class="stage">
+    <div class="stage-number">01</div>
+    <div class="stage-title">設計を詰める</div>
+    <div class="stage-mark"></div>
+    <div class="stage-skills"><code>brainstorming</code></div>
   </div>
-  <div v-click.fade-in class="p-3 rounded border border-primary/30 bg-primary/15">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade-in</div>
-    <div>Fade in</div>
+
+  <div class="stage">
+    <div class="stage-number">02</div>
+    <div class="stage-title">仕様を書く</div>
+    <div class="stage-mark"></div>
+    <div class="stage-skills"><code>writing-plans</code></div>
   </div>
-  <div v-click.fade class="p-3 rounded border border-primary/40 bg-primary/20">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade</div>
-    <div>Dim (0.5 opacity)</div>
+
+  <div class="stage">
+    <div class="stage-number">03</div>
+    <div class="stage-title">実装する</div>
+    <div class="stage-mark"></div>
+    <div class="stage-skills"><code>subagent-driven-<br>development</code><code>test-driven-<br>development</code></div>
   </div>
-  <div v-click.fade.right.scale class="p-3 rounded border border-primary/50 bg-primary/25">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.fade.right.scale</div>
-    <div>Composed</div>
+
+  <div class="stage">
+    <div class="stage-number">04</div>
+    <div class="stage-title">検証する</div>
+    <div class="stage-mark"></div>
+    <div class="stage-skills"><code>requesting-code-review</code></div>
   </div>
-  <div v-click.none class="p-3 rounded border border-primary/60 bg-primary/30">
-    <div class="font-mono text-xs opacity-60 mb-1">v-click.none</div>
-    <div>No transition</div>
+
+  <div class="stage">
+    <div class="stage-number">05</div>
+    <div class="stage-title">完了する</div>
+    <div class="stage-mark"></div>
+    <div class="stage-skills"><code>finishing-a-development-<br>branch</code></div>
   </div>
 </div>
 
-<v-click>
+<!--
+まず、Superpowersの基本的なワークフローを紹介します。
 
-The <span v-mark.red="7"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="8">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
+最初にbrainstormingで、実装へ進む前に設計を詰めます。次にwriting-plansで、変更するファイル、コード、テスト方法まで含む仕様を書きます。
 
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
+実装はSubagentに任せ、各タスクをTDDで進めます。実装後にコードレビューを行い、最後にブランチを完了します。
 
-</v-click>
-
-<div v-click mt-12>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
+画面では流れを追いやすいように、関連するスキルを5段階にまとめています。
+-->
 
 ---
+layout: default
+class: swiss-dark
+---
 
-# Motions
-
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
+<div class="page-head">
+  <div class="page-kicker kicker-on-dark">SUPERPOWERS / PHILOSOPHY</div>
+  <h1 class="page-title title-on-dark">Skillsを「事細かく」書く</h1>
 </div>
-```
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
+<div class="philosophy-grid">
+  <div class="model-route">
+    <div class="route-row">
+      <span class="route-meta">DESIGN</span>
+      <strong>最も高性能なモデル</strong>
+      <span>仕様と設計を固める</span>
+    </div><div class="route-row route-accent">
+      <span class="route-meta">PLAN</span>
+      <strong>詳細な実装計画</strong>
+      <span>ファイル・コード・テスト手順</span>
+    </div><div class="route-row">
+      <span class="route-meta">EXECUTE</span>
+      <strong>高速で安価なモデル</strong>
+      <span>明確な仕様を機械的に実装する</span>
+    </div>
   </div>
 
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
+  <div class="skill-spec">
+    <div class="skill-spec-head">
+      <span>writing-skills / SKILL.md</span>
+      <span class="skill-lines">679 LINES</span>
+    </div>
+    <iframe class="skill-scroll" src="/sources/superpowers-writing-skills.html" title="Superpowers writing-skills全文"></iframe>
+    <div class="skill-source">
+      <a href="https://github.com/obra/superpowers/blob/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills/writing-skills/SKILL.md">obra/superpowers · b36e082</a>
+    </div>
   </div>
 </div>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
+<!--
+Superpowersの思想は明快です。
 
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
+設計には最も高性能なモデルを使います。そしてwriting-plansで、変更するファイル、コード、テスト手順まで詳細に決めます。計画が十分に具体的であれば、実装は高速で安価なモデルに任せられます。
 
-[Learn more](https://sli.dev/guide/animations.html#motion)
+この考え方は、Skillの書き方にも表れています。右側には、679行あるwriting-skillsの全文を載せています。圧力テスト、Agentがルールを破るときの言い訳、抜け道の塞ぎ方、再検証まで、非常に事細かく説明しています。
 
+極端に言えば、「猿でも分かる手順書」のような粒度です。ただし、長いこと自体が目的ではありません。誰が実行しても同じ規律を再現できるように、Howを細かく定義しています。
+-->
+
+---
+layout: default
+class: swiss-light matt-workflow-page
+---
+
+<div class="page-head">
+  <div class="page-kicker">MATT POCOCK / WORKFLOW</div>
+  <h1 class="page-title">Matt Pocock Skillsのワークフロー</h1>
 </div>
 
----
-
-# $\LaTeX$
-
-$\LaTeX$ is supported out-of-box. Powered by [$\KaTeX$](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
+<div class="matt-flow">
+  <div class="matt-step matt-step-start">
+    <div class="matt-number">01</div>
+    <div class="matt-command">/grill-me</div>
+    <div class="matt-or">or</div>
+    <div class="matt-command">/grill-with-docs</div>
   </div>
-</v-drag>
+  <div class="matt-arrow">→</div>
+  <div class="matt-step">
+    <div class="matt-number">02</div>
+    <div class="matt-command">/to-spec</div>
+  </div>
+  <div class="matt-arrow">›</div>
+  <div class="matt-step">
+    <div class="matt-number">03</div>
+    <div class="matt-command">/to-tickets</div>
+  </div>
+  <div class="matt-arrow">›</div>
+  <div class="matt-step">
+    <div class="matt-number">04</div>
+    <div class="matt-command">/implement</div>
+  </div>
+  <div class="matt-arrow">›</div>
+  <div class="matt-step matt-step-end">
+    <div class="matt-number">05</div>
+    <div class="matt-command">/code-review</div>
+  </div>
+</div>
 
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+<div class="matt-footnote">Matt Pocock Skillsには、このほかにも多数のSkillがあります。</div>
 
-###### Draggable Arrow
+<!--
+一方、Matt Pocock Skillsにも、よく似た流れがあります。
 
-```md
-<v-drag-arrow two-way />
-```
+最初にgrill-me、またはgrill-with-docsで、実装前に認識を合わせます。次にto-specで仕様をまとめ、to-ticketsで作業を分割します。その後、implementで実装し、最後にcode-reviewを行います。
 
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
-
----
-
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
+これは唯一の必須フローではありません。ただ、Superpowersと比較するうえでは、この組み合わせが最も分かりやすいと思います。
+-->
 
 ---
-layout: center
-class: text-center
+layout: default
+class: pruning-split
 ---
 
-# Learn More
+<div class="pruning-left">
+  <h1 class="pruning-title">
+    <span>WRITING</span>
+    <span>FOR</span>
+    <span>AGENTS</span>
+  </h1>
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+  <div class="pruning-case">
+    <div class="pruning-case-label">CASE STUDY</div>
+    <strong>grilling</strong>
+    <div class="pruning-case-meta">
+      <span>28 LINES</span>
+      <span>短くても効く</span>
+    </div>
+  </div>
+</div>
 
-<PoweredBySlidev mt-10 />
+<div class="pruning-right">
+  <div class="pruning-principle">PRUNING PRINCIPLE</div>
+  <div class="pruning-question">
+    この文を<br>
+    削除すると、<br>
+    Agentの挙動は<br>
+    <span class="pruning-em">変わるか？</span>
+  </div>
+  <div class="pruning-answer">変わらないなら、削除する。</div>
+</div>
+
+<!--
+Matt Pocockのwriting-for-agentsには、非常に分かりやすい判断基準があります。
+
+この文を削除すると、Agentの挙動は変わるか。変わらないのであれば、その文は削除します。
+
+短くすること自体が目的ではありません。重複した説明、環境を見れば分かる情報、Agentがもともと実行する指示を取り除き、挙動を変える言葉だけを残します。
+
+例えば、今回スライド作成にも使っているgrillingは、わずか28行です。それでも、質問を前提関係ごとに整理し、私と認識が揃うまでAgentを止める、という強い効果があります。
+
+writing-for-agentsをうまく使うと、このように短くても効果の強いSkillを作れます。
+-->
+
+---
+layout: default
+class: swiss-light roles-page
+---
+
+<div class="page-head">
+  <div class="page-kicker">HUMAN × AI / RESPONSIBILITY</div>
+  <h1 class="page-title">緩いのではなく、役割が違う</h1>
+</div>
+
+<div class="roles-grid">
+  <section class="role-column role-human">
+    <div class="role-meta">HUMAN / WHAT</div>
+    <h2>インターフェイスを<br>決める</h2>
+    <ul>
+      <li><span>01</span>仕様と制約</li>
+      <li><span>02</span>トレードオフ</li>
+      <li><span>03</span>受け入れ条件・テスト境界</li>
+    </ul>
+  </section>
+
+  <div class="role-divider">
+    <span>CONTRACT</span>
+  </div>
+
+  <section class="role-column role-ai">
+    <div class="role-meta">AI / HOW</div>
+    <h2>インターフェイスを<br>実装する</h2>
+    <ul>
+      <li><span>01</span>コードとテストを書く</li>
+      <li><span>02</span>型検査・テストを通す</li>
+      <li><span>03</span>レビュー指摘を修正する</li>
+    </ul>
+  </section>
+</div>
+
+<div class="roles-statement">制約を守っていれば、実装は問わない</div>
+
+<!--
+Matt Pocock Skillsは、Superpowersよりルールが緩い、ということではありません。人間とAIの役割が違います。
+
+人間は、仕様、制約、インターフェイス、トレードオフを決めます。テストについても、何を満たせば完成なのかという受け入れ条件と境界を決めます。
+
+AIは、そのインターフェイスを実装します。コードとテストを書き、型検査とテストを通し、レビューの指摘を修正します。
+
+つまり、制約を守っていれば、実装は問いません。人間はHowを事細かく指定するのではなく、設計と判断に集中できます。
+-->
+
+---
+layout: default
+class: swiss-dark trust-page
+---
+
+<div class="page-head">
+  <div class="page-kicker kicker-on-dark">MY EXPERIENCE / GPT-5.6以降</div>
+  <h1 class="page-title title-on-dark">実装は、もう見なくてもいい？</h1>
+</div>
+
+<div class="trust-grid">
+  <section class="trust-item">
+    <div class="trust-number">01</div>
+    <h2>すぐ直せる</h2>
+    <p>問題があっても、<br>ほとんどすぐに修正できる</p>
+  </section>
+
+  <section class="trust-item trust-item-accent">
+    <div class="trust-number">02</div>
+    <h2>ルールに残せる</h2>
+    <p>殆どの場合、<br>AGENTS.mdに書けば<br>再発しなくなる</p>
+  </section>
+
+  <section class="trust-item">
+    <div class="trust-number">03</div>
+    <h2>大胆に直せる</h2>
+    <p>大きなリファクタリングにも<br>抵抗を感じにくくなった</p>
+  </section>
+</div>
+
+<div class="trust-loop">
+  <span>GENERATE</span><i>→</i><span>FIX</span><i>→</i><span>CODIFY</span><i>→</i><span>REPEAT</span>
+</div>
+
+<!--
+ここからは、GPT-5.6以降の私個人の実感です。
+
+最近は、AIが書いた実装を細かく確認しなくてもよいのではないか、と感じるようになりました。
+
+もちろん、問題がまったく起きないわけではありません。ただ、何か問題があっても、ほとんどの場合はすぐに修正できます。同じ失敗を繰り返すなら、AGENTS.mdにルールとして書くことで、再発しなくなります。
+
+自分で大量のコードを書き直す必要もないため、大きなリファクタリングへの抵抗感も薄くなりました。
+
+実装、修正、ルール化というループが速くなったことで、実装そのものを監督する時間が減っています。
+-->
+
+---
+layout: default
+class: closing-page
+---
+
+<section class="closing-claim">
+  <div class="closing-meta">CONCLUSION</div>
+  <h1>
+    コードを<br>
+    書かなくても、<br>
+    <em>学ぶ必要</em>は<br>
+    なくならない
+  </h1>
+</section>
+
+<section class="closing-reason">
+  <div class="closing-path">
+    <div class="closing-step">
+      <span>01</span>
+      <div>
+        <h2>原理を理解する</h2>
+        <p>なぜ動くのかを知る</p>
+      </div>
+    </div>
+    <div class="closing-step">
+      <span>02</span>
+      <div>
+        <h2>設計できる</h2>
+        <p>境界と制約を決める</p>
+      </div>
+    </div>
+    <div class="closing-step">
+      <span>03</span>
+      <div>
+        <h2>判断できる</h2>
+        <p>トレードオフを選ぶ</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="closing-line">
+    <span>仕事の中心が、</span>
+    <strong>書くことから、決めることへ。</strong>
+  </div>
+</section>
+
+<!--
+ただし、コードを書かなくなることと、コードを学ばなくてよいことは、まったく別です。
+
+原理が分からなければ、適切な設計はできません。設計ができなければ、どこに境界を置くか、どの制約を優先するかというトレードオフも判断できません。
+
+AIが実装を担うようになっても、技術を理解する必要はなくなりません。むしろ人間には、何を作るのか、何を守るのか、どの選択肢を採るのかを決める力が求められます。
+
+エンジニアの仕事の中心は、コードを書くことから、決めることへ移りつつあると思います。
+-->
