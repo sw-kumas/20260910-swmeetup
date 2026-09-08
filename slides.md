@@ -25,7 +25,8 @@ class: swiss-cover
 </div>
 
 <!--
-本日は、最近私がSuperpowersを使わなくなり、代わりにMatt Pocock Skillsを使うようになった理由をお話しします。
+GPT6が出て、一段と賢くなったと感じた。
+Howを教える必要がなくなったかも。
 -->
 
 ---
@@ -46,7 +47,7 @@ class: swiss-light
     <div class="stage-skills"><code>brainstorming</code></div>
   </div>
 
-  <div class="stage">
+  <div class="stage stage-emphasis">
     <div class="stage-number">02</div>
     <div class="stage-title">仕様を書く</div>
     <div class="stage-mark"></div>
@@ -76,13 +77,11 @@ class: swiss-light
 </div>
 
 <!--
-まず、Superpowersの基本的なワークフローを紹介します。
+個人開発で過去にSupwerpowersを使った。
+Supwerpowersは仕様駆動開発の思想で、設計＞仕様＞実装＞検証＞完了という順で進める。
 
-最初にbrainstormingで、実装へ進む前に設計を詰めます。次にwriting-plansで、変更するファイル、コード、テスト方法まで含む仕様を書きます。
-
-実装はSubagentに任せ、各タスクをTDDで進めます。実装後にコードレビューを行い、最後にブランチを完了します。
-
-画面では流れを追いやすいように、関連するスキルを5段階にまとめています。
+Superpowersの特徴として、「writing-plans」で仕様書以外にタスクファイルも生成される。
+そのタスクファイルは非常に細かく、何を実装するか、どう実装するか、場合によって実装例のコードまで書かれている。
 -->
 
 ---
@@ -92,7 +91,7 @@ class: swiss-dark
 
 <div class="page-head">
   <div class="page-kicker kicker-on-dark">SUPERPOWERS / PHILOSOPHY</div>
-  <h1 class="page-title title-on-dark">Skillsを「事細かく」書く</h1>
+  <h1 class="page-title title-on-dark">「事細かく」書く</h1>
 </div>
 
 <div class="philosophy-grid">
@@ -125,13 +124,14 @@ class: swiss-dark
 </div>
 
 <!--
-Superpowersの思想は明快です。
+なぜSuperpowersはそこまで事細かく書くか。
 
-設計には最も高性能なモデルを使います。そしてwriting-plansで、変更するファイル、コード、テスト手順まで詳細に決めます。計画が十分に具体的であれば、実装は高速で安価なモデルに任せられます。
+賢いモデルで仕様と設計を固めて、やすいモデルでも実装するという思想だから。
 
-この考え方は、Skillの書き方にも表れています。右側には、679行あるwriting-skillsの全文を載せています。圧力テスト、Agentがルールを破るときの言い訳、抜け道の塞ぎ方、再検証まで、非常に事細かく説明しています。
+やすいモデルの賢さを期待していないから、誰でも分かる手順書を作ることになる。
 
-極端に言えば、「猿でも分かる手順書」のような粒度です。ただし、長いこと自体が目的ではありません。誰が実行しても同じ規律を再現できるように、Howを細かく定義しています。
+writing-skillsというスキルを作成するためのスキルがある。
+スキルの作り方というより「完璧な手順書の作り方」の説明。
 -->
 
 ---
@@ -152,12 +152,12 @@ class: swiss-light matt-workflow-page
     <div class="matt-command">/grill-with-docs</div>
   </div>
   <div class="matt-arrow">→</div>
-  <div class="matt-step">
+  <div class="matt-step matt-step-optional">
     <div class="matt-number">02</div>
     <div class="matt-command">/to-spec</div>
   </div>
   <div class="matt-arrow">›</div>
-  <div class="matt-step">
+  <div class="matt-step matt-step-optional">
     <div class="matt-number">03</div>
     <div class="matt-command">/to-tickets</div>
   </div>
@@ -176,11 +176,16 @@ class: swiss-light matt-workflow-page
 <div class="matt-footnote">Matt Pocock Skillsには、このほかにも多数のSkillがあります。</div>
 
 <!--
-一方、Matt Pocock Skillsにも、よく似た流れがあります。
+最近Supwerpowersの変わりにMatt Pocock Skillsを使っている。
 
-最初にgrill-me、またはgrill-with-docsで、実装前に認識を合わせます。次にto-specで仕様をまとめ、to-ticketsで作業を分割します。その後、implementで実装し、最後にcode-reviewを行います。
+一見Supwerpowersに近い構成だが、
+実はto-specとto-ticketsは必須ではない。
 
-これは唯一の必須フローではありません。ただ、Superpowersと比較するうえでは、この組み合わせが最も分かりやすいと思います。
+ to-specとto-ticketsはあくまで「この会話のコンテキストウィンドウに収まらなさそうな場合、外部に記録を残す」ためのスキル。
+
+チケットに「何を作るか」と「受け入れ基準」しか書かれていない。
+
+「How」を教える必要がなくなり、逆に「AIが必要に応じてHowを提示して選んでもらう」というのが特徴です。
 -->
 
 ---
@@ -217,15 +222,11 @@ class: pruning-split
 </div>
 
 <!--
-Matt Pocockのwriting-for-agentsには、非常に分かりやすい判断基準があります。
+MattPocockは、「今のAIはすでにシニアエンジニア並み、あるいはそれ以上」と評価しているので、「10年以上のシニアエンジニアにマイクロマネジメントをするのは逆効果」と思っているので、
 
-この文を削除すると、Agentの挙動は変わるか。変わらないのであれば、その文は削除します。
+なので、Writing for Agentsというスキルは「この文を削除.....削除する」という基準で作成された。
 
-短くすること自体が目的ではありません。重複した説明、環境を見れば分かる情報、Agentがもともと実行する指示を取り除き、挙動を変える言葉だけを残します。
-
-例えば、今回スライド作成にも使っているgrillingは、わずか28行です。それでも、質問を前提関係ごとに整理し、私と認識が揃うまでAgentを止める、という強い効果があります。
-
-writing-for-agentsをうまく使うと、このように短くても効果の強いSkillを作れます。
+実際、grillingは28行しかない。
 -->
 
 ---
@@ -235,7 +236,7 @@ class: swiss-light roles-page
 
 <div class="page-head">
   <div class="page-kicker">HUMAN × AI / RESPONSIBILITY</div>
-  <h1 class="page-title">緩いのではなく、役割が違う</h1>
+  <h1 class="page-title">今後人間とAIの役割はどうなるか？</h1>
 </div>
 
 <div class="roles-grid">
@@ -264,116 +265,49 @@ class: swiss-light roles-page
   </section>
 </div>
 
-<div class="roles-statement">制約を守っていれば、実装は問わない</div>
+<div class="roles-statement">制約を守っていれば、実装(How)は問わない</div>
 
 <!--
-Matt Pocock Skillsは、Superpowersよりルールが緩い、ということではありません。人間とAIの役割が違います。
+今後どうなるか、人間は何をすべきか？
 
-人間は、仕様、制約、インターフェイス、トレードオフを決めます。テストについても、何を満たせば完成なのかという受け入れ条件と境界を決めます。
+簡単にいうと人間はクライアントになり、AIがSESエンジニアになると思います。
+
+人間は、仕様、制約、トレードオフなどのインターフェイスを決めます。
 
 AIは、そのインターフェイスを実装します。コードとテストを書き、型検査とテストを通し、レビューの指摘を修正します。
 
-つまり、制約を守っていれば、実装は問いません。人間はHowを事細かく指定するのではなく、設計と判断に集中できます。
+つまり、制約を守っていれば、実装は問いません。
+人間はHowを事細かく指定するのではなく、設計と判断に集中する。
 -->
 
 ---
 layout: default
-class: swiss-dark trust-page
+class: swiss-light references-page
 ---
 
 <div class="page-head">
-  <div class="page-kicker kicker-on-dark">MY EXPERIENCE / GPT-5.6以降</div>
-  <h1 class="page-title title-on-dark">実装は、もう見なくてもいい？</h1>
+  <div class="page-kicker">SOURCES / FURTHER READING</div>
+  <h1 class="page-title">参考資料</h1>
 </div>
 
-<div class="trust-grid">
-  <section class="trust-item">
-    <div class="trust-number">01</div>
-    <h2>すぐ直せる</h2>
-    <p>問題があっても、<br>ほとんどすぐに修正できる</p>
-  </section>
-
-  <section class="trust-item trust-item-accent">
-    <div class="trust-number">02</div>
-    <h2>ルールに残せる</h2>
-    <p>殆どの場合、<br>AGENTS.mdに書けば<br>再発しなくなる</p>
-  </section>
-
-  <section class="trust-item">
-    <div class="trust-number">03</div>
-    <h2>大胆に直せる</h2>
-    <p>大きなリファクタリングにも<br>抵抗を感じにくくなった</p>
-  </section>
-</div>
-
-<div class="trust-loop">
-  <span>GENERATE</span><i>→</i><span>FIX</span><i>→</i><span>CODIFY</span><i>→</i><span>REPEAT</span>
+<div class="reference-list">
+  <a class="reference-item" href="https://www.aihero.dev/how-to-make-codebases-ai-agents-love" target="_blank">
+    <div class="reference-number">01</div>
+    <div class="reference-title">How to Make Codebases AI Agents Love</div>
+    <div class="reference-url">aihero.dev/how-to-make-codebases-ai-agents-love</div>
+  </a>
+  <a class="reference-item" href="https://github.com/obra/superpowers" target="_blank">
+    <div class="reference-number">02</div>
+    <div class="reference-title">obra / superpowers</div>
+    <div class="reference-url">github.com/obra/superpowers</div>
+  </a>
+  <a class="reference-item" href="https://github.com/mattpocock/skills" target="_blank">
+    <div class="reference-number">03</div>
+    <div class="reference-title">mattpocock / skills</div>
+    <div class="reference-url">github.com/mattpocock/skills</div>
+  </a>
 </div>
 
 <!--
-ここからは、GPT-5.6以降の私個人の実感です。
-
-最近は、AIが書いた実装を細かく確認しなくてもよいのではないか、と感じるようになりました。
-
-もちろん、問題がまったく起きないわけではありません。ただ、何か問題があっても、ほとんどの場合はすぐに修正できます。同じ失敗を繰り返すなら、AGENTS.mdにルールとして書くことで、再発しなくなります。
-
-自分で大量のコードを書き直す必要もないため、大きなリファクタリングへの抵抗感も薄くなりました。
-
-実装、修正、ルール化というループが速くなったことで、実装そのものを監督する時間が減っています。
--->
-
----
-layout: default
-class: closing-page
----
-
-<section class="closing-claim">
-  <div class="closing-meta">CONCLUSION</div>
-  <h1>
-    コードを<br>
-    書かなくても、<br>
-    <em>学ぶ必要</em>は<br>
-    なくならない
-  </h1>
-</section>
-
-<section class="closing-reason">
-  <div class="closing-path">
-    <div class="closing-step">
-      <span>01</span>
-      <div>
-        <h2>原理を理解する</h2>
-        <p>なぜ動くのかを知る</p>
-      </div>
-    </div>
-    <div class="closing-step">
-      <span>02</span>
-      <div>
-        <h2>設計できる</h2>
-        <p>境界と制約を決める</p>
-      </div>
-    </div>
-    <div class="closing-step">
-      <span>03</span>
-      <div>
-        <h2>判断できる</h2>
-        <p>トレードオフを選ぶ</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="closing-line">
-    <span>仕事の中心が、</span>
-    <strong>書くことから、決めることへ。</strong>
-  </div>
-</section>
-
-<!--
-ただし、コードを書かなくなることと、コードを学ばなくてよいことは、まったく別です。
-
-原理が分からなければ、適切な設計はできません。設計ができなければ、どこに境界を置くか、どの制約を優先するかというトレードオフも判断できません。
-
-AIが実装を担うようになっても、技術を理解する必要はなくなりません。むしろ人間には、何を作るのか、何を守るのか、どの選択肢を採るのかを決める力が求められます。
-
-エンジニアの仕事の中心は、コードを書くことから、決めることへ移りつつあると思います。
+最後に、今回参考にした資料です。興味があれば、あとでご覧ください。
 -->

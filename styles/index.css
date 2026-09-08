@@ -108,6 +108,20 @@
   border-right: 0;
 }
 
+.stage-emphasis {
+  background: var(--swiss-accent);
+  color: white;
+}
+
+.stage-emphasis .stage-number,
+.stage-emphasis .stage-skills code {
+  color: white !important;
+}
+
+.stage-emphasis .stage-mark {
+  background: white;
+}
+
 .stage-mark {
   position: absolute;
   top: -7px;
@@ -311,6 +325,15 @@ iframe.skill-scroll {
   min-height: 244px;
   padding: 20px 16px 24px;
   background: var(--swiss-paper);
+}
+
+.matt-step-optional {
+  background: var(--swiss-grey-2);
+  color: var(--swiss-grey-3);
+}
+
+.matt-step-optional .matt-number {
+  color: var(--swiss-grey-3);
 }
 
 .matt-step-start {
@@ -763,4 +786,49 @@ iframe.skill-scroll {
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: -0.03em;
+}
+
+.references-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.reference-list {
+  margin-top: 54px;
+  border-top: 1px solid var(--swiss-ink);
+}
+
+.reference-item {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr) minmax(0, 1.25fr);
+  align-items: center;
+  min-height: 112px;
+  border-bottom: 1px solid var(--swiss-grey-2);
+  color: var(--swiss-ink) !important;
+  text-decoration: none !important;
+}
+
+.reference-number {
+  color: var(--swiss-accent);
+  font-size: 38px;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.reference-title {
+  padding-right: 32px;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+.reference-url {
+  color: var(--swiss-grey-3);
+  font-family: var(--swiss-mono);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
