@@ -24,9 +24,75 @@ class: swiss-cover
   </div>
 </div>
 
+---
+layout: default
+class: swiss-light repo-intro-page
+---
+
+<div class="page-head">
+  <div class="page-kicker">SKILLS / TWO REPOSITORIES</div>
+  <h1 class="page-title">登場人物</h1>
+</div>
+
+<div class="repo-intro-grid">
+  <figure class="repo-intro-item">
+    <img src="/obra-superpowers-stats.png" alt="obra/superpowersのGitHub統計">
+    <figcaption>
+      <h2>obra/superpowers</h2>
+      <p>AIエージェントの開発手順をまとめたSkills</p>
+    </figcaption>
+  </figure>
+
+  <figure class="repo-intro-item">
+    <img src="/mattpocock-skills-stats.png" alt="mattpocock/skillsのGitHub統計">
+    <figcaption>
+      <h2>mattpocock/skills</h2>
+      <p>Matt Pocockが普段使うSkills集</p>
+    </figcaption>
+  </figure>
+</div>
+
 <!--
-GPT6が出て、一段と賢くなったと感じた。
-Howを教える必要がなくなったかも。
+まず、今回取り上げる2つのリポジトリを簡単に紹介します。
+
+Superpowersは、AIエージェントを使った開発工程をSkillsとして体系化したものです。
+Matt Pocock Skillsは、Matt Pocockが実際に使っているSkillsを公開したものです。
+-->
+
+---
+layout: default
+class: swiss-dark star-comparison-page
+---
+
+<div class="page-head">
+  <div class="page-kicker kicker-on-dark">GITHUB STARS / SEP 9, 2026</div>
+  <h1 class="page-title title-on-dark">Matt Pocock Skillsが急速に差を縮めている</h1>
+</div>
+
+<div class="star-comparison">
+  <img class="star-history-image" src="/star-history-202699.png" alt="SuperpowersとMatt Pocock SkillsのStar推移">
+
+  <div class="star-summary">
+    <div class="star-summary-row">
+      <span>現在のStar差</span>
+      <strong>約2.7万</strong>
+      <small>283.1k / 256.6k</small>
+    </div>
+    <div class="star-summary-row star-summary-accent">
+      <span>直近1週間の増加</span>
+      <strong>約4.3倍</strong>
+      <small>13.4k / 3.1k</small>
+    </div>
+  </div>
+</div>
+
+<!--
+Superpowersが先に伸びましたが、後発のMatt Pocock Skillsが急速に差を縮めています。
+
+2026年9月9日時点の差は約2万7千Starです。
+直近1週間の増加数を比べると、Matt Pocock SkillsはSuperpowersの約4.3倍でした。
+
+この勢いなら追いつきそうだと感じています。
 -->
 
 ---
