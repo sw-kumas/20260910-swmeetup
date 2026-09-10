@@ -61,42 +61,6 @@ Matt Pocock Skillsは、Matt Pocockが実際に使っているSkillsを公開し
 
 ---
 layout: default
-class: swiss-dark star-comparison-page
----
-
-<div class="page-head">
-  <div class="page-kicker kicker-on-dark">GITHUB STARS / SEP 9, 2026</div>
-  <h1 class="page-title title-on-dark">Matt Pocock Skillsが急速に差を縮めている</h1>
-</div>
-
-<div class="star-comparison">
-  <img class="star-history-image" src="/star-history-202699.png" alt="SuperpowersとMatt Pocock SkillsのStar推移">
-
-  <div class="star-summary">
-    <div class="star-summary-row">
-      <span>現在のStar差</span>
-      <strong>約2.7万</strong>
-      <small>283.1k / 256.6k</small>
-    </div>
-    <div class="star-summary-row star-summary-accent">
-      <span>直近1週間の増加</span>
-      <strong>約4.3倍</strong>
-      <small>13.4k / 3.1k</small>
-    </div>
-  </div>
-</div>
-
-<!--
-Superpowersが先に伸びましたが、後発のMatt Pocock Skillsが急速に差を縮めています。
-
-2026年9月9日時点の差は約2万7千Starです。
-直近1週間の増加数を比べると、Matt Pocock SkillsはSuperpowersの約4.3倍でした。
-
-この勢いなら追いつきそうだと感じています。
--->
-
----
-layout: default
 class: swiss-light
 ---
 
@@ -293,6 +257,78 @@ MattPocockは、「今のAIはすでにシニアエンジニア並み、ある�
 なので、Writing for Agentsというスキルは「この文を削除.....削除する」という基準で作成された。
 
 実際、grillingは28行しかない。
+-->
+
+---
+layout: default
+class: swiss-light roles-page comparison-page
+---
+
+<div class="page-head">
+  <div class="page-kicker">TWO PHILOSOPHIES / ONE CONTRAST</div>
+  <h1 class="page-title">Superpowers VS Matt Pocock Skills</h1>
+</div>
+
+<div class="roles-grid comparison-grid">
+  <section class="role-column role-human">
+    <div class="role-meta">SUPERPOWERS / 5 YEARS</div>
+    <h2>ジュニアが迷わない<br>手順書をつくる</h2>
+    <p class="comparison-copy">5年ほど経験を積んだエンジニアと設計を詰め、ジュニアでも実装できる粒度まで落とす。実装は手順書に沿って任せる。</p>
+  </section>
+
+  <div class="role-divider">
+    <span>VS</span>
+  </div>
+
+  <section class="role-column role-ai">
+    <div class="role-meta">MATT POCOCK SKILLS / 10+ YEARS</div>
+    <h2>熟練者には<br>境界だけを渡す</h2>
+    <p class="comparison-copy">10年以上の経験を持つエンジニアに細かな手順を渡しても、その判断力までは引き出せない。譲れない条件を決め、実装方法は任せる。</p>
+  </section>
+</div>
+
+<!--
+ここでいう「5年」と「10年以上」は、AIの能力差を説明するための比喩です。
+
+Superpowersは、経験のあるエンジニアと設計を詰めたうえで、ジュニアでも迷わず実装できるところまで手順を細かくします。
+
+Matt Pocock Skillsは、熟練者に細かな手順を渡しても判断力を十分に引き出せないと考えます。譲れない境界だけを決め、具体的な実装は任せます。
+-->
+
+---
+layout: default
+class: swiss-dark star-comparison-page
+---
+
+<div class="page-head">
+  <div class="page-kicker kicker-on-dark">GITHUB STARS / SEP 9, 2026</div>
+  <h1 class="page-title title-on-dark">Matt Pocock Skillsが急速に差を縮めている</h1>
+</div>
+
+<div class="star-comparison">
+  <img class="star-history-image" src="/star-history-202699.png" alt="SuperpowersとMatt Pocock SkillsのStar推移">
+
+  <div class="star-summary">
+    <div class="star-summary-row">
+      <span>現在のStar差</span>
+      <strong>約2.7万</strong>
+      <small>283.1k / 256.6k</small>
+    </div>
+    <div class="star-summary-row star-summary-accent">
+      <span>直近1週間の増加</span>
+      <strong>約4.3倍</strong>
+      <small>13.4k / 3.1k</small>
+    </div>
+  </div>
+</div>
+
+<!--
+Superpowersが先に伸びましたが、後発のMatt Pocock Skillsが急速に差を縮めています。
+
+2026年9月9日時点の差は約2万7千Starです。
+直近1週間の増加数を比べると、Matt Pocock SkillsはSuperpowersの約4.3倍でした。
+
+この勢いなら追いつきそうだと感じています。
 -->
 
 ---
